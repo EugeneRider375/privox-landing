@@ -1,26 +1,50 @@
 
-body {
+body, html {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #ffffff;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
   color: #333;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
+
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://www.transparenttextures.com/patterns/cubes.png') repeat;
+  opacity: 0.06;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
 header {
   text-align: center;
-  padding: 60px 20px 20px;
-  background: #f0f0f0;
+  padding: 60px 20px 30px;
 }
+
 h1 {
   font-size: 3em;
   margin-bottom: 10px;
+  color: #007acc;
 }
+
 .subtitle {
   font-size: 1.2em;
   color: #666;
 }
+
 .lang-switch {
   margin: 20px;
 }
+
 .lang-switch button {
   background-color: #007acc;
   color: white;
@@ -30,6 +54,7 @@ h1 {
   border-radius: 6px;
   cursor: pointer;
 }
+
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -37,39 +62,51 @@ h1 {
   gap: 30px;
   padding: 40px 20px;
 }
+
 .card {
-  background-color: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 16px;
-  width: 280px;
-  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+  width: 260px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 20px;
+  transition: 0.3s ease;
 }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
 .card img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 15px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
 }
+
 .card h3 {
-  color: #222;
+  color: #007acc;
 }
+
 .card p {
+  font-size: 0.95em;
   color: #555;
 }
+
 .card button {
   margin-top: 10px;
   padding: 8px 16px;
   border: none;
-  border-radius: 8px;
-  background-color: #007acc;
+  border-radius: 6px;
+  background-color: #00bfa6;
   color: white;
+  font-weight: bold;
   cursor: pointer;
 }
+
 footer {
   text-align: center;
   padding: 20px;
-  background: #f0f0f0;
-  color: #666;
+  font-size: 0.8em;
+  color: #888;
 }
