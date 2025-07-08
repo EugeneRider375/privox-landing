@@ -2,31 +2,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Parking App</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <title>Privox Dashboard</title>
+    <style>
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .lang-switcher button {
+            margin-left: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 100px;
+            gap: 30px;
+        }
+        .card {
+            width: 180px;
+            height: 180px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .label {
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Parking and Farm Info</h1>
-    </header>
-    <main>
+    <div class="lang-switcher">
+        <button onclick="setLang('en')">EN</button>
+        <button onclick="setLang('fr')">FR</button>
+        <button onclick="setLang('ru')">RU</button>
+    </div>
+    <div class="container">
         <div class="card">
-            <img src="assets/icons/parking_icon.png" alt="Parking Icon">
-            <h3>Smart Parking</h3>
-            <p>Control and monitor your smart parking places with ease.</p>
-            <button onclick="alert('Parking info!')">Learn more</button>
+            <img src="parking.png" alt="Parking">
+            <div class="label" data-en="Parking" data-fr="Parking" data-ru="Парковка">Parking</div>
         </div>
         <div class="card">
-            <img src="assets/icons/cow_tractor.jpg" alt="Cow Tractor">
-            <h3>Farm Tractor</h3>
-            <p>Tractors are fun too, especially when cows drive them.</p>
-            <button onclick="alert('Tractor info!')">Learn more</button>
+            <img src="farm.jpg" alt="Farm">
+            <div class="label" data-en="Farm" data-fr="Ferme" data-ru="Ферма">Farm</div>
         </div>
-    </main>
-    <footer>
-        &copy; 2025 Smart Projects
-    </footer>
+        <div class="card">
+            <img src="garage.jpg" alt="Garage">
+            <div class="label" data-en="Garage" data-fr="Garage" data-ru="Гараж">Garage</div>
+        </div>
+        <div class="card">
+            <img src="messenger.jpg" alt="Messenger">
+            <div class="label" data-en="Messenger" data-fr="Messagerie" data-ru="Мессенджер">Messenger</div>
+        </div>
+    </div>
+    <script>
+        function setLang(lang) {
+            const labels = document.querySelectorAll('.label');
+            labels.forEach(label => {
+                label.textContent = label.getAttribute(`data-${lang}`);
+            });
+        }
+    </script>
 </body>
 </html>
