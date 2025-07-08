@@ -1,91 +1,123 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Privox Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Privox</title>
     <style>
         body {
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
         }
-        .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        header {
+            padding: 20px 10px 0;
         }
-        .lang-switcher button {
-            margin-left: 5px;
+        h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        .language-selector {
+            margin-top: 10px;
+        }
+        .language-selector button {
+            margin: 0 5px;
             padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffffaa;
             cursor: pointer;
         }
-        .container {
+        .icons {
+            margin-top: 60px;
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 100px;
-            gap: 30px;
+            gap: 40px;
         }
-        .card {
-            width: 180px;
-            height: 180px;
-            background-color: rgba(255, 255, 255, 0.8);
+        .icon-card {
+            background-color: #00000088;
+            padding: 10px;
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s;
+            width: 130px;
         }
-        .card:hover {
-            transform: scale(1.05);
+        .icon-card img {
+            width: 100px;
+            height: auto;
         }
-        .card img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
-        }
-        .label {
-            font-size: 16px;
-            text-align: center;
+        footer {
+            margin-top: 60px;
+            padding: 20px;
+            background-color: #000000aa;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
-    <div class="lang-switcher">
-        <button onclick="setLang('en')">EN</button>
-        <button onclick="setLang('fr')">FR</button>
-        <button onclick="setLang('ru')">RU</button>
-    </div>
-    <div class="container">
-        <div class="card">
-            <img src="parking.png" alt="Parking">
-            <div class="label" data-en="Parking" data-fr="Parking" data-ru="Парковка">Parking</div>
+    <header>
+        <h1 id="slogan">Cutting-edge solutions by PRIVOX</h1>
+        <div class="language-selector">
+            <button onclick="setLang('en')">English</button>
+            <button onclick="setLang('fr')">Français</button>
+            <button onclick="setLang('ru')">Русский</button>
         </div>
-        <div class="card">
-            <img src="farm.jpg" alt="Farm">
-            <div class="label" data-en="Farm" data-fr="Ferme" data-ru="Ферма">Farm</div>
+    </header>
+    <section class="icons">
+        <div class="icon-card">
+            <a href="https://garage.privox.tech" target="_blank">
+                <img src="garage.jpg" alt="Garage"/>
+                <div id="garage">Garage</div>
+            </a>
         </div>
-        <div class="card">
-            <img src="garage.jpg" alt="Garage">
-            <div class="label" data-en="Garage" data-fr="Garage" data-ru="Гараж">Garage</div>
+        <div class="icon-card">
+            <img src="parking.jpg" alt="Parking"/>
+            <div id="parking">Parking</div>
         </div>
-        <div class="card">
-            <img src="messenger.jpg" alt="Messenger">
-            <div class="label" data-en="Messenger" data-fr="Messagerie" data-ru="Мессенджер">Messenger</div>
+        <div class="icon-card">
+            <img src="farm.jpg" alt="Farm"/>
+            <div id="farm">Farm</div>
         </div>
-    </div>
+        <div class="icon-card">
+            <img src="messenger.jpg" alt="Messenger"/>
+            <div id="messenger">Messenger</div>
+        </div>
+    </section>
+    <footer>
+        privox.tech 2025
+    </footer>
     <script>
+        const translations = {
+            en: {
+                slogan: "Cutting-edge solutions by PRIVOX",
+                garage: "Garage",
+                parking: "Parking",
+                farm: "Farm",
+                messenger: "Messenger"
+            },
+            fr: {
+                slogan: "Solutions technologiques de pointe par PRIVOX",
+                garage: "Garage",
+                parking: "Parking",
+                farm: "Ferme",
+                messenger: "Messagerie"
+            },
+            ru: {
+                slogan: "Новейшие технологические решения от PRIVOX",
+                garage: "Гараж",
+                parking: "Парковка",
+                farm: "Ферма",
+                messenger: "Мессенджер"
+            }
+        };
         function setLang(lang) {
-            const labels = document.querySelectorAll('.label');
-            labels.forEach(label => {
-                label.textContent = label.getAttribute(`data-${lang}`);
-            });
+            document.getElementById('slogan').innerText = translations[lang].slogan;
+            document.getElementById('garage').innerText = translations[lang].garage;
+            document.getElementById('parking').innerText = translations[lang].parking;
+            document.getElementById('farm').innerText = translations[lang].farm;
+            document.getElementById('messenger').innerText = translations[lang].messenger;
         }
     </script>
 </body>
