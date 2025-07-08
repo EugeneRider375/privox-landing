@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>PRIVOX Solutions</title>
     <style>
+        .card p { color: white; font-weight: bold; }
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -60,7 +61,7 @@
     </style>
 </head>
 <body>
-    <div class="header">Cutting-edge solutions by PRIVOX</div>
+    <div class="header" id="main-heading">Innovative tech solutions from PRIVOX</div>
     <div class="language-buttons">
         <button>English</button>
         <button>Français</button>
@@ -73,5 +74,40 @@
         <a class="card" href="#"><img src="assets/messenger.jpg" alt="Messenger"><div>Messenger</div></a>
     </div>
     <div class="footer">privox.tech 2025</div>
+
+<script>
+    const texts = {
+        en: {
+            heading: "Innovative tech solutions from PRIVOX",
+            garage: "Garage",
+            parking: "Parking",
+            farm: "Farm",
+            messenger: "Messenger"
+        },
+        fr: {
+            heading: "Solutions technologiques innovantes de PRIVOX",
+            garage: "Garage",
+            parking: "Parking",
+            farm: "Ferme",
+            messenger: "Messagerie"
+        },
+        ru: {
+            heading: "Новейшие технологические решения от PRIVOX",
+            garage: "Гараж",
+            parking: "Парковка",
+            farm: "Ферма",
+            messenger: "Мессенджер"
+        }
+    };
+
+    function switchLang(lang) {
+        document.getElementById("main-heading").innerText = texts[lang].heading;
+        document.getElementById("garage-label").innerText = texts[lang].garage;
+        document.getElementById("parking-label").innerText = texts[lang].parking;
+        document.getElementById("farm-label").innerText = texts[lang].farm;
+        document.getElementById("messenger-label").innerText = texts[lang].messenger;
+    }
+</script>
+
 </body>
 </html>
