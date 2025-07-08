@@ -2,112 +2,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PRIVOX Solutions</title>
-    <style>
-        .card p { color: white; font-weight: bold; }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: url('assets/background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-align: center;
-        }
-        .header {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-top: 5vh;
-        }
-        .language-buttons {
-            margin: 20px;
-        }
-        .language-buttons button {
-            margin: 0 10px;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-        }
-        .cards {
-            display: flex;
-            justify-content: center;
-            margin-top: 10vh;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        .card {
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 16px;
-            padding: 20px;
-            width: 160px;
-            text-align: center;
-            transition: transform 0.2s ease;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        .card img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-        }
-        .footer {
-            margin-top: 60px;
-            padding: 20px;
-            background-color: rgba(0,0,0,0.5);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privox</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div class="header" id="main-heading">Innovative tech solutions from PRIVOX</div>
-    <div class="language-buttons">
-        <button>English</button>
-        <button>Français</button>
-        <button>Русский</button>
+  <div class="container">
+    <h1 class="main-title" data-i18n="slogan">Cutting-edge technological solutions from PRIVOX</h1>
+    <div class="language-switcher">
+      <button data-lang="en">🇬🇧</button>
+      <button data-lang="fr">🇫🇷</button>
+      <button data-lang="ru">🇷🇺</button>
     </div>
     <div class="cards">
-        <a class="card" href="#"><img src="assets/garage.jpg" alt="Garage"><div>Garage</div></a>
-        <a class="card" href="#"><img src="assets/parking.png" alt="Parking"><div>Parking</div></a>
-        <a class="card" href="#"><img src="assets/farm.jpg" alt="Farm"><div>Farm</div></a>
-        <a class="card" href="#"><img src="assets/messenger.jpg" alt="Messenger"><div>Messenger</div></a>
+      <a href="https://garage.privox.tech" class="card">
+        <img src="images/garage.jpg" alt="Garage" />
+        <div class="label" data-i18n="garage">Garage</div>
+      </a>
+      <a href="#" class="card">
+        <img src="images/parking.png" alt="Parking" />
+        <div class="label" data-i18n="parking">Parking</div>
+      </a>
+      <a href="#" class="card">
+        <img src="images/farm.jpg" alt="Farm" />
+        <div class="label" data-i18n="farm">Farm</div>
+      </a>
+      <a href="#" class="card">
+        <img src="images/messenger.jpg" alt="Messenger" />
+        <div class="label" data-i18n="messenger">Messenger</div>
+      </a>
     </div>
-    <div class="footer">privox.tech 2025</div>
-
-<script>
-    const texts = {
-        en: {
-            heading: "Innovative tech solutions from PRIVOX",
-            garage: "Garage",
-            parking: "Parking",
-            farm: "Farm",
-            messenger: "Messenger"
-        },
-        fr: {
-            heading: "Solutions technologiques innovantes de PRIVOX",
-            garage: "Garage",
-            parking: "Parking",
-            farm: "Ferme",
-            messenger: "Messagerie"
-        },
-        ru: {
-            heading: "Новейшие технологические решения от PRIVOX",
-            garage: "Гараж",
-            parking: "Парковка",
-            farm: "Ферма",
-            messenger: "Мессенджер"
-        }
-    };
-
-    function switchLang(lang) {
-        document.getElementById("main-heading").innerText = texts[lang].heading;
-        document.getElementById("garage-label").innerText = texts[lang].garage;
-        document.getElementById("parking-label").innerText = texts[lang].parking;
-        document.getElementById("farm-label").innerText = texts[lang].farm;
-        document.getElementById("messenger-label").innerText = texts[lang].messenger;
-    }
-</script>
-
+    <footer>privox.tech 2025</footer>
+  </div>
+  <script src="js/lang.js"></script>
 </body>
 </html>
