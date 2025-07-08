@@ -1,124 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Privox</title>
+    <meta charset="UTF-8">
+    <title>PRIVOX Solutions</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: url('background.jpg') no-repeat center center fixed;
+            background: url('assets/background.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
             text-align: center;
         }
-        header {
-            padding: 20px 10px 0;
+        .header {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-top: 5vh;
         }
-        h1 {
-            font-size: 2em;
-            margin-bottom: 5px;
+        .language-buttons {
+            margin: 20px;
         }
-        .language-selector {
-            margin-top: 10px;
-        }
-        .language-selector button {
-            margin: 0 5px;
-            padding: 5px 10px;
+        .language-buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 8px;
             border: none;
-            border-radius: 5px;
-            background-color: #ffffffaa;
             cursor: pointer;
         }
-        .icons {
-            margin-top: 60px;
+        .cards {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            margin-top: 10vh;
             gap: 40px;
+            flex-wrap: wrap;
         }
-        .icon-card {
-            background-color: #00000088;
-            padding: 10px;
-            border-radius: 15px;
-            width: 130px;
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 16px;
+            padding: 20px;
+            width: 160px;
+            text-align: center;
+            transition: transform 0.2s ease;
         }
-        .icon-card img {
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
             width: 100px;
-            height: auto;
+            height: 100px;
+            object-fit: contain;
         }
-        footer {
+        .footer {
             margin-top: 60px;
             padding: 20px;
-            background-color: #000000aa;
-            font-size: 0.9em;
+            background-color: rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1 id="slogan">Cutting-edge solutions by PRIVOX</h1>
-        <div class="language-selector">
-            <button onclick="setLang('en')">English</button>
-            <button onclick="setLang('fr')">Français</button>
-            <button onclick="setLang('ru')">Русский</button>
-        </div>
-    </header>
-    <section class="icons">
-        <div class="icon-card">
-            <a href="https://garage.privox.tech" target="_blank">
-                <img src="garage.jpg" alt="Garage"/>
-                <div id="garage">Garage</div>
-            </a>
-        </div>
-        <div class="icon-card">
-            <img src="parking.jpg" alt="Parking"/>
-            <div id="parking">Parking</div>
-        </div>
-        <div class="icon-card">
-            <img src="farm.jpg" alt="Farm"/>
-            <div id="farm">Farm</div>
-        </div>
-        <div class="icon-card">
-            <img src="messenger.jpg" alt="Messenger"/>
-            <div id="messenger">Messenger</div>
-        </div>
-    </section>
-    <footer>
-        privox.tech 2025
-    </footer>
-    <script>
-        const translations = {
-            en: {
-                slogan: "Cutting-edge solutions by PRIVOX",
-                garage: "Garage",
-                parking: "Parking",
-                farm: "Farm",
-                messenger: "Messenger"
-            },
-            fr: {
-                slogan: "Solutions technologiques de pointe par PRIVOX",
-                garage: "Garage",
-                parking: "Parking",
-                farm: "Ferme",
-                messenger: "Messagerie"
-            },
-            ru: {
-                slogan: "Новейшие технологические решения от PRIVOX",
-                garage: "Гараж",
-                parking: "Парковка",
-                farm: "Ферма",
-                messenger: "Мессенджер"
-            }
-        };
-        function setLang(lang) {
-            document.getElementById('slogan').innerText = translations[lang].slogan;
-            document.getElementById('garage').innerText = translations[lang].garage;
-            document.getElementById('parking').innerText = translations[lang].parking;
-            document.getElementById('farm').innerText = translations[lang].farm;
-            document.getElementById('messenger').innerText = translations[lang].messenger;
-        }
-    </script>
+    <div class="header">Cutting-edge solutions by PRIVOX</div>
+    <div class="language-buttons">
+        <button>English</button>
+        <button>Français</button>
+        <button>Русский</button>
+    </div>
+    <div class="cards">
+        <a class="card" href="#"><img src="assets/garage.jpg" alt="Garage"><div>Garage</div></a>
+        <a class="card" href="#"><img src="assets/parking.png" alt="Parking"><div>Parking</div></a>
+        <a class="card" href="#"><img src="assets/farm.jpg" alt="Farm"><div>Farm</div></a>
+        <a class="card" href="#"><img src="assets/messenger.jpg" alt="Messenger"><div>Messenger</div></a>
+    </div>
+    <div class="footer">privox.tech 2025</div>
 </body>
 </html>
