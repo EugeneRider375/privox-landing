@@ -1,40 +1,136 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privox</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PRIVOX</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("background.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .lang-switcher {
+            margin-top: 20px;
+        }
+        .lang-switcher img {
+            width: 40px;
+            height: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .intro-text {
+            margin: 30px auto;
+            max-width: 800px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .sections {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .card {
+            width: 200px;
+            margin: 20px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 12px 12px 0 0;
+        }
+        .card p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #ccc;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="main-title" data-i18n="slogan">Cutting-edge technological solutions from PRIVOX</h1>
-    <div class="language-switcher">
-      <button data-lang="en">🇬🇧</button>
-      <button data-lang="fr">🇫🇷</button>
-      <button data-lang="ru">🇷🇺</button>
+    <div class="lang-switcher">
+        <img src="flag_ru.png" onclick="setLanguage('ru')" alt="Русский" />
+        <img src="flag_en.png" onclick="setLanguage('en')" alt="English" />
+        <img src="flag_fr.png" onclick="setLanguage('fr')" alt="Français" />
     </div>
-    <div class="cards">
-      <a href="https://garage.privox.tech" class="card">
-        <img src="images/garage.jpg" alt="Garage" />
-        <div class="label" data-i18n="garage">Garage</div>
-      </a>
-      <a href="#" class="card">
-        <img src="images/parking.png" alt="Parking" />
-        <div class="label" data-i18n="parking">Parking</div>
-      </a>
-      <a href="#" class="card">
-        <img src="images/farm.jpg" alt="Farm" />
-        <div class="label" data-i18n="farm">Farm</div>
-      </a>
-      <a href="#" class="card">
-        <img src="images/messenger.jpg" alt="Messenger" />
-        <div class="label" data-i18n="messenger">Messenger</div>
-      </a>
+
+    <div class="intro-text" id="introText">
+        <!-- Текст будет установлен скриптом -->
     </div>
+
+    <div class="sections">
+        <div class="card" onclick="location.href='https://garage.privox.tech';">
+            <img src="garage.jpg" alt="Garage">
+            <p id="garageLabel">Гараж</p>
+        </div>
+        <div class="card">
+            <img src="parking.png" alt="Parking">
+            <p id="parkingLabel">Парковка</p>
+        </div>
+        <div class="card">
+            <img src="farm.jpg" alt="Farm">
+            <p id="farmLabel">Ферма</p>
+        </div>
+        <div class="card">
+            <img src="messenger.jpg" alt="Messenger">
+            <p id="messengerLabel">Мессенджер</p>
+        </div>
+    </div>
+
     <footer>privox.tech 2025</footer>
-  </div>
-  <script src="js/lang.js"></script>
+
+    <script>
+        const translations = {
+            ru: {
+                intro: "PRIVOX — это решения для индустрии, муниципалитетов, сельского хозяйства и передачи сообщений для предприятий, основанные на новейших цифровых технологиях и энергосберегающих системах LoRaWAN.",
+                garage: "Гараж",
+                parking: "Парковка",
+                farm: "Ферма",
+                messenger: "Мессенджер"
+            },
+            en: {
+                intro: "PRIVOX delivers solutions for industry, municipalities, agriculture, and enterprise messaging — powered by cutting-edge digital technologies and low-energy LoRaWAN systems.",
+                garage: "Garage",
+                parking: "Parking",
+                farm: "Farm",
+                messenger: "Messenger"
+            },
+            fr: {
+                intro: "PRIVOX propose des solutions pour l’industrie, les municipalités, l’agriculture et la messagerie d’entreprise, basées sur les technologies numériques de pointe et les systèmes LoRaWAN à faible consommation.",
+                garage: "Garage",
+                parking: "Parking",
+                farm: "Ferme",
+                messenger: "Messagerie"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.getElementById('introText').innerText = translations[lang].intro;
+            document.getElementById('garageLabel').innerText = translations[lang].garage;
+            document.getElementById('parkingLabel').innerText = translations[lang].parking;
+            document.getElementById('farmLabel').innerText = translations[lang].farm;
+            document.getElementById('messengerLabel').innerText = translations[lang].messenger;
+        }
+
+        // Default language
+        setLanguage('ru');
+    </script>
 </body>
 </html>
